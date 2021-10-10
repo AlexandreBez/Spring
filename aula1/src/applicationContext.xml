@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+    <context:property-placeholder location="classpath:sport.properties"/>
+
+    <bean id="myFortune" 
+        class="spring_demo_one.aula1.HappyFortuneService">
+    </bean>
+
+ 	<bean id="myCricketCoach"
+ 		class="spring_demo_one.aula1.CricketCoach">	
+         
+        <!-- setter injection -->
+        <property name="fortuneService" ref="myFortuneService"/>
+
+        <!-- inject literal values -->
+        <property name="emailAddress" value="${foo.email}"/>
+        <property name="team" value="${foo.team}"/>
+ 	</bean>
+
+     <bean id="myCoach"
+     class="spring_demo_one.aula1.BaseballCoach">	
+     
+        <!-- constructor injection -->
+        <constructor-arg ref="myFortune"/>
+
+    </bean>
+
+    <bean id="myCoach"
+        class="spring_demo_one.aula1.TrackCoach">	
+        
+        <!-- constructor injection -->
+        <constructor-arg ref="myFortune"/>
+
+    </bean>
+        
+
+</beans>
