@@ -26,7 +26,18 @@
 			<version>${springframework.version}</version>
 		</dependency>
 
-		
+		<!-- SQL suporte -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.27</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mchange</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.5.5</version>
+		</dependency>
 
 		<!-- Servlet, JSP and JSTL support -->
 		<dependency>
